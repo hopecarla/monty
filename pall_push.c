@@ -10,7 +10,7 @@ void addqueue(stack_t **head, int value);
  */
 void push(stack_t **head, unsigned int counter)
 {
-	int i, j = 0;
+	int n, j = 0;
 
 	if (bus.arg == NULL || bus.arg[0] == '\0')
 	{
@@ -25,21 +25,21 @@ void push(stack_t **head, unsigned int counter)
 	while (bus.arg[j] != '\0')
 	{
 		if (!isdigit(bus.arg[j]))
-			{
+		{
 				fprintf(stderr, "L%d: usage: pus integer\n", counter);
 				fclose(bus.file);
 				free(bus.content);
 				free_stack(*head);
 				exit(EXIT_FAILURE);
-			}
+		}
 			j++;
 	}
-	i = atoi(bus.arg);
+	n = atoi(bus.arg);
 
 	if (bus.lifi == 0)
-	addnode(head, i);
+	addnode(head, n);
 	else
-	addqueue(head, i);
+	addqueue(head, n);
 	}
 
 /**
@@ -57,7 +57,7 @@ void pall(stack_t **head, unsigned int counter)
 
 	while (h)
 	{
-		printf("%d\n", h->i);
+		printf("%d\n", h->n);
 		h = h->next;
 	}
 }
